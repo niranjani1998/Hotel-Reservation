@@ -1,0 +1,50 @@
+package com.Reservation.api.demo.web;
+
+
+import com.Reservation.api.demo.model.Customer;
+import com.Reservation.api.demo.repository.CustomerRepository;
+import com.Reservation.api.demo.service.CustomerService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.MediaType;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
+import java.util.Optional;
+
+@RestController
+@RequestMapping("/api")
+
+public class CustomerController {
+    @Autowired
+    private CustomerService customerService;
+
+
+
+    @RequestMapping(value = "/Customers", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
+    public List<Customer> getCustomer() {
+        return (List<Customer>) customerService.getAllCustomer();
+    }
+
+
+
+    @RequestMapping(value="/Customers",method= RequestMethod.POST,produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
+    public ResponseEntity<Customer> createCustomer(@RequestBody Customer customer ){
+        Customer createdCustomer = customerService.createCustomer(customer);
+        return Optional.ofNullable(createdCustomer)
+                .map(b ->ResponseEntity.ok().body(b))
+                .orElse(ResponseEntity.notFound(). build());
+    }
+    @RequestMapping(value="/Customers",method= RequestMethod.PUT,produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
+    public ResponseEntity<Customer> CreateCustomer(@RequestBody Customer customer ){
+        Customer CreatedCustomer = customerService.createCustomer (customer);
+        return Optional.ofNullable(CreatedCustomer)
+                .map(b ->ResponseEntity.ok().body(b))
+                .orElse(ResponseEntity.notFound(). build());
+    }
+    @RequestMapping(value = "/Customers/{id}",method = RequestMethod.DELETE,produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
+    public void deleteById(@PathVariable Long id)
+    {
+        customerService.deleteById(id);
+    }
+}
