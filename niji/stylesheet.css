@@ -1,0 +1,90 @@
+
+body
+{
+  margin:0;
+  padding:0;
+  background-image:url(final2.jpeg);
+  background-size:cover;
+ 
+  
+  
+}
+
+.container
+{
+  top:50%;
+  left:50%;
+  position:absolute;
+  transform:translate(-50%,-50%);
+}
+.card
+{
+  padding:60px 40px 50px;
+  background:white;
+  background-size:cover;
+  border-radius:150px;
+  
+  
+ 
+}
+#name
+{
+  width:200px;
+  border:none;
+  background:transparent;
+  border-bottom:1px solid black;
+  padding:6px;
+  margin-bottom:20px;
+  color:black;
+}
+#button
+{
+  border:20px;
+  padding:10px 5px;
+  background:1E90FF;
+  color:white;
+  margin-top:20px;
+  border:none;
+  outline:none;
+  margin-left:10px;
+  color:white;
+  transition:3s;
+  border-radius:10px;
+}
+#button:hover{
+    background:deepskyblue;
+    transition:2s;
+}
+#button1:hover{
+    background:deepskyblue ;
+    transition:3s;
+}
+#button1
+{
+  border:20px;
+  padding:10px 5px;
+  background:1E90FF;
+  width:60px;
+  color:white;
+  margin-top:20px;
+  border:none;
+  outline:none;
+  margin-left:10px;
+  color:white;
+  transition: 3s;
+  justify-content:space-between;
+  border-radius:10px;
+}
+a
+{
+ font-size:13px;
+ color:deepskyblue
+}
+img
+{
+  border-radius:50%;
+  position:absolute;
+  margin-left:100px;
+  margin-top:-30px;
+}
+
