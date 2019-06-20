@@ -3,9 +3,10 @@ package com.Reservation.api.demo.service;
 import com.Reservation.api.demo.model.Reservation;
 import com.Reservation.api.demo.repository.ReservationRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
-
+@Service
 public class ReservationService {
     @Autowired
     private ReservationRepository reservationRepository;

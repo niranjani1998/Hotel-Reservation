@@ -2,6 +2,7 @@ package com.Reservation.api.demo.model;
 
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 public class Room {
@@ -14,7 +15,8 @@ public class Room {
     private Long occupancyAllowed;
     private Long roomAvailable;
     @ManyToOne
-
+    @JoinColumn(name ="hotelid",referencedColumnName = "hotelid")
+      private Hotel hotels;
 
     public Long getRoomid() {
         return roomid;

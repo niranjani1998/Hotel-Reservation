@@ -20,14 +20,18 @@ public class CustomerController {
     private CustomerService customerService;
 
 
-
+     @CrossOrigin
+     @RequestMapping(value = "/Customers/login",method = RequestMethod.POST,produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
+     public Boolean checkCustomer(@RequestBody Customer customer)
+     {
+         return customerService.authUser(customer.getCustomerName(),customer.getPassword());
+     }
     @RequestMapping(value = "/Customers", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
     public List<Customer> getCustomer() {
         return (List<Customer>) customerService.getAllCustomer();
     }
 
-
-
+    @CrossOrigin
     @RequestMapping(value="/Customers",method= RequestMethod.POST,produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
     public ResponseEntity<Customer> createCustomer(@RequestBody Customer customer ){
         Customer createdCustomer = customerService.createCustomer(customer);

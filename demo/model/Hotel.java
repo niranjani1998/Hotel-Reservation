@@ -1,9 +1,9 @@
 package com.Reservation.api.demo.model;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
+import javax.persistence.*;
+import java.util.List;
 
 @Entity
 public class Hotel {
@@ -21,6 +21,17 @@ public class Hotel {
     private String Email;
     private Long zipcode;
     private String facility;
+
+    @JsonIgnore
+    @OneToMany(fetch = FetchType.LAZY)
+    @JoinColumn(name = "hotelid",referencedColumnName = "hotelid")
+    private List<Room> rooms;
+
+    @JsonIgnore
+    @OneToMany(fetch=FetchType.LAZY)
+    @JoinColumn(name = "hotelid",referencedColumnName = "hotelid")
+    private List<Reservation> reservations;
+
 
     public Long getHotelid() {
         return hotelid;
@@ -116,5 +127,21 @@ public class Hotel {
 
     public void setFacility(String facility) {
         this.facility = facility;
+    }
+
+    public List<Room> getRooms() {
+        return rooms;
+    }
+
+    public void setRooms(List<Room> rooms) {
+        this.rooms = rooms;
+    }
+
+    public List<Reservation> getReservations() {
+        return reservations;
+    }
+
+    public void setReservations(List<Reservation> reservations) {
+        this.reservations = reservations;
     }
 }

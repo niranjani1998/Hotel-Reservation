@@ -1,13 +1,9 @@
 package com.Reservation.api.demo.model;
 
 
-import javax.persistence.Entity;
+import javax.persistence.*;
 
 
-
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
 import java.time.LocalDate;
 
 
@@ -24,6 +20,23 @@ public class Reservation {
     private LocalDate cancellationDate;
     private Long refundAmount;
     private String paymentDesc;
+
+    @ManyToOne
+    @JoinColumn(name = "id",referencedColumnName = "id")
+    private Customer customer;
+
+    @ManyToOne
+    @JoinColumn(name = "hotelid",referencedColumnName = "hotelid")
+    private Hotel hotel;
+
+    @OneToOne
+    @JoinColumn(name = "roomid",referencedColumnName = "roomid")
+    private Room room;
+
+    @OneToOne
+    @JoinColumn(name = "paymentid",referencedColumnName = "paymentid")
+    private Payment payment;
+
 
     public Long getBookingid() {
         return bookingid;

@@ -2,11 +2,11 @@ package com.Reservation.api.demo.model;
 
 
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
+import javax.persistence.*;
 import java.time.LocalDateTime;
+import java.util.List;
 
 @Entity
 public class Customer {
@@ -14,11 +14,19 @@ public class Customer {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
-    private String loginId;
-    private String password;
-    private LocalDateTime currentDttm;
-    private Boolean active;
     private String customerName;
+
+    private String password;
+
+
+    private String phoneNumber;
+    private String email;
+
+    @JsonIgnore
+    @OneToMany(fetch=FetchType.LAZY)
+    @JoinColumn(name = "id")
+    private List<Reservation> reservations;
+
 
     public Long getId() {
         return id;
@@ -28,12 +36,12 @@ public class Customer {
         this.id = id;
     }
 
-    public String getLoginId() {
-        return loginId;
+    public String getCustomerName() {
+        return customerName;
     }
 
-    public void setLoginId(String loginId) {
-        this.loginId = loginId;
+    public void setCustomerName(String customerName) {
+        this.customerName = customerName;
     }
 
     public String getPassword() {
@@ -44,27 +52,29 @@ public class Customer {
         this.password = password;
     }
 
-    public LocalDateTime getCurrentDttm() {
-        return currentDttm;
+
+
+    public String getPhoneNumber() {
+        return phoneNumber;
     }
 
-    public void setCurrentDttm(LocalDateTime currentDttm) {
-        this.currentDttm = currentDttm;
+    public void setPhoneNumber(String phoneNumber) {
+        this.phoneNumber = phoneNumber;
     }
 
-    public Boolean getActive() {
-        return active;
+    public String getEmail() {
+        return email;
     }
 
-    public void setActive(Boolean active) {
-        this.active = active;
+    public void setEmail(String email) {
+        this.email = email;
     }
 
-    public String getCustomerName() {
-        return customerName;
+    public List<Reservation> getReservations() {
+        return reservations;
     }
 
-    public void setCustomerName(String customerName) {
-        this.customerName = customerName;
+    public void setReservations(List<Reservation> reservations) {
+        this.reservations = reservations;
     }
 }
