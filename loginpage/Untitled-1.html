@@ -1,0 +1,75 @@
+<html>
+<head>
+<title> Login</title>
+
+<link href="stylesheet.css" rel="stylesheet" type="text/css">
+</head>
+
+ <body>
+        <h6 style= "color:black;font-size:500%;font-family:Monotype Corsiva;text-align:top;"><i><marquee>BEYOND SPACE</marquee></i></h6>      
+<div class="container">
+   <img src="log.png" height="70" width="70">   
+    <div class="card">
+<input type="text" placeholder="Username" id="inputName" class="name"><br>
+<input type="password" placeholder="Password" id="inputPassword" class="name"><br>
+<a href="#">Forgot Password?</a><br>
+<button type="button" onclick="handleClick()" class="button">Login</button>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="signup" onclick="location.href='signup.html';" value="signup" id="button1" />
+</div>
+</div>
+<script type="text/javascript">
+function postData(url = '', data = {}) {
+      console.log('We are here');
+      // Default options are marked with *
+      return fetch(url, {
+        method: 'POST', // *GET, POST, PUT, DELETE, etc.
+        mode: 'cors', // no-cors, cors, *same-origin
+        cache: 'no-cache', // *default, no-cache, reload, force-cache, only-if-cached
+        credentials: 'same-origin', // include, *same-origin, omit
+        headers: {
+          'Content-Type': 'application/json',
+          // 'Content-Type': 'application/x-www-form-urlencoded',
+        },
+        redirect: 'follow', // manual, *follow, error
+        referrer: 'no-referrer', // no-referrer, *client
+        body: JSON.stringify(data), // body data type must match "Content-Type" header
+      })
+        .then(response => response.json()); // parses JSON response into native Javascript objects 
+    }
+
+    function handleClick() {
+      console.log('Hi');
+      const name = document.getElementById('inputName').value;
+      const password = document.getElementById('inputPassword').value;
+     
+      
+
+
+
+      const Data = {
+        url: 'http://localhost:8080/api/Customers/login',
+        data: {
+          'customerName': name,
+          'password': password
+          }
+      };
+      postData(Data.url, Data.data)
+        .then(data => {
+          if((JSON.stringify(data))=="true")
+          {
+          window.location = "booking.html";
+          }
+          else
+          {
+            alert("invalid")
+          }
+         
+        })
+        .catch(error => console.error(error));
+    }        
+  </script>
+ 
+
+
+</body>
+</html>
