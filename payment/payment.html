@@ -1,0 +1,106 @@
+<html>
+    <head><title>booking</title>
+    <link rel="stylesheet" href="style3.css">
+    </head>
+    <style>
+            ::placeholder {
+              color:black;
+              opacity: 1; /* Firefox */
+            }
+            
+            :-ms-input-placeholder { /* Internet Explorer 10-11 */
+             color:black;
+            }
+            
+            ::-ms-input-placeholder { /* Microsoft Edge */
+             color:black;
+            }
+            </style>
+    <body>
+            <h6 style= "color:black;font-size:500%;font-family:Monotype Corsiva;text-align:center;"><i>PAYMENT</i></h6>
+            <div class="container">
+                 
+                  <div class="card"> 
+                     <input type="text" placeholder="Card Owner" id="inputName" class="name"><br>
+                    ChooseBanking: &nbsp;&nbsp;&nbsp;
+                     
+                                <select class="style" id="inputPay">
+                                  <option value="Credit Card">Credit Card</option>
+                                  <option value="Debit Card">Debit Card</option>
+                                  
+                                </select><br>
+        
+                                <input type="number" placeholder="Card Number" id="inputNum" class="name"><br>
+                    Expiry-Date:&nbsp;&nbsp;<input type="date" name="Check-in-Date" class="style" id="inputExpiry" class="name"><br>
+                                <input type="number"placeholder="CCV" class="style" id="inputCcv" ><br><br>
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<button type="submit" onclick="handleClick()" id="button">pay</button>
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="button" onclick="location.href='hotels.html';" class="button" value="cancel" id="button" style="top: -20px; padding-right: 20px;" >
+                </div>
+                
+            </div>   
+            <script type="text/javascript">
+              function postData(url = '', data = {}) {
+                console.log('We are here');
+                // Default options are marked with *
+                return fetch(url, {
+                  method: 'POST', // *GET, POST, PUT, DELETE, etc.
+                  mode: 'cors', // no-cors, cors, *same-origin
+                  cache: 'no-cache', // *default, no-cache, reload, force-cache, only-if-cached
+                  credentials: 'same-origin', // include, *same-origin, omit
+                  headers: {
+                    'Content-Type': 'application/json',
+                    // 'Content-Type': 'application/x-www-form-urlencoded',
+                  },
+                  redirect: 'follow', // manual, *follow, error
+                  referrer: 'no-referrer', // no-referrer, *client
+                  body: JSON.stringify(data), // body data type must match "Content-Type" header
+                })
+                  .then(response => response.json()); // parses JSON response into native Javascript objects 
+              }
+          
+              function handleClick() {
+                console.log('Hi');
+                const name = document.getElementById('inputName').value;
+                const pay= document.getElementById('inputPay').value;
+                const num = document.getElementById('inputNum').value;
+                const exp= document.getElementById('inputExpiry').value;
+                const numb= document.getElementById('inputCcv').value;
+                
+          
+          
+          
+                const Data = {
+                  url: 'http://localhost:8080/api/payments',
+                  data: {
+                    'cardOwner': name,
+                    'paymentDesc':pay,
+                    'cardNumber':num,
+                    'expiryDate':exp,
+                    'ccv':numb
+
+                  }
+                };
+                postData(Data.url, Data.data)
+                  .then(data => {
+                    
+                    if((num.length<=16)  && (numb.length<=3))
+                    {
+                     // return true;
+                    console.log(JSON.stringify(data));
+                     window.location.href = "success.html";
+                    }
+                    else{
+                      alert("Please enter your 16 digit card number and 3 digit ccv");
+                   
+                  
+                  
+                    }
+                   
+                  })
+                  .catch(error => console.error(error));
+              }        
+            </script>   
+ 
+
+    </body>
+</html>
