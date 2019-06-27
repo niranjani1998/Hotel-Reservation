@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="style1.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+
+
+</head>
+
+<body>
+
+  <div class="topnav">
+    <a class="active" href="home.html">Home</a>
+    <a href="review.html">Reviews</a>
+    <a href="booking.html">Booking</a>
+    <a href="Untitled-1.html">Login</a>
+    <div class="search-container">
+      <form action="/action_page.php">
+        <input type="text" placeholder="Search.." name="search">
+        <button type="submit" onclick="booking.html"><i class="fa fa-search"></i></button>
+      </form>
+    </div>
+
+
+
+  </div>
+
+  <div class="container">
+    
+    <input type="button" class="button1" onclick="loadPosts(1)" ; value="PARK AVENUE" id="button1" />
+    <input type="button" class="button1" onclick="loadPosts(2)" ; value="City Center" id="button1" />
+    <input type="button" class="button2" onclick="loadPosts(3)" ; value="Hablis" id="button2" />
+    <input type="button" class="button3" onclick="loadPosts(4)" ; value="Avengers" id="button3" />
+    <input type="button" class="button4" onclick="loadPosts(5)" ; value="Sherlock" id="button4" />
+    <input type="button" class="button5" onclick="loadPosts(6)" ; value="Meridian" id="button5" />
+    <input type="button" class="button6" onclick="loadPosts(7)" ; value="Royale" id="button5" />
+    <input type="button" class="button7" onclick="loadPosts(8)" ; value="Legend" id="button5" />
+  </div>
+  <div id='hotels'></div>
+  <script type="text/javascript">
+  var mywindow;
+
+    function loadPosts(id) {
+      // console.log(id);
+      //mywindow=window.open("","mywindow","width=1000,height=1000");
+      fetch(`http://localhost:8080/api/hotel/${id}`)
+        .then((res) => res.json()).then(h => {
+          console.log(h);
+          let output = '';
+          document.write(
+            output += `
+                <h1 style="color:darkorchid;background:deepskyblue;text-align:center;font-size:48;" >${h.hotelName}</h1>
+                <p style="color:darkorchid;text-align:center;">${h.address}  ${h.area}</p>
+                <h1 style="background:deepskyblue;color:darkorchid;">RATINGS AND REVIEWS</h1>
+                <p style="color:orange;text-align:center;font-size:48;">&#9734 &#9734 &#9734 &#9734 </p>
+               <table style="border-collapse:collapse;font-family:Monotype Corsiva;width:100%;">
+                  <tr>
+                    <th style="border: 1px solid #dddddd;text-align: left;padding: 8px;">country</th>
+                    <th style="border: 1px solid #dddddd;text-align: left;padding: 8px;">city</th>
+                    <th style="border: 1px solid #dddddd;text-align: left;padding: 8px;">managerName</th>
+                    <th style="border: 1px solid #dddddd;text-align: left;padding: 8px;">phoneno</th>
+                    <th style="border: 1px solid #dddddd;text-align: left;padding: 8px;">email</th>
+                    <th style="border: 1px solid #dddddd;text-align: left;padding: 8px;">website</th>
+                    <th style="border: 1px solid #dddddd;text-align: left;padding: 8px;">facility</th>
+                    <th style="border: 1px solid #dddddd;text-align: left;padding: 8px;">zipcode</th>
+                      </tr>
+                   <tr style="background-color:deepskyblue;">
+                    <td style="border: 1px solid #dddddd;text-align: left;padding: 8px;">${h.country}</td>
+                    <td style="border: 1px solid #dddddd;text-align: left;padding: 8px;">${h.city}</td>
+                    <td style="border: 1px solid #dddddd;text-align: left;padding: 8px;">${h.managerName}</td>
+                    <td style="border: 1px solid #dddddd;text-align: left;padding: 8px;">${h.phoneno}</td>
+                    <td style="border: 1px solid #dddddd;text-align: left;padding: 8px;">${h.email}</td>
+                    <td style="border: 1px solid #dddddd;text-align: left;padding: 8px;">${h.website}</td>
+                    <td style="border: 1px solid #dddddd;text-align: left;padding: 8px;">${h.facility}</td>
+                    <td style="border: 1px solid #dddddd;text-align: left;padding: 8px;">${h.zipcode}</td>
+                      </tr>
+                    </table>
+                    <img src="htt.jpg" height="350" width="350">       
+                    <img src="be8.jpg" height="350" width="350">
+                    
+                    <img src="be12.jpg" height="350" width="350">
+
+            `);
+          
+          //document.getElementById('hotels').innerHTML = output;
+           
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+    }
+  </script>
+
+</body>
+
+</html>

@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="shortcut icon" href="facivon.ico">
+    <title>ADD YOUR POST</title>
+    <!-- Bootstrap core CSS -->
+    <link href="http://getbootstrap.com/dist/css/bootstrap.css" rel="stylesheet">
+    <!-- Custom styles for this template -->
+    <link href="http://getbootstrap.com/examples/jumbotron-narrow/jumbotron-narrow.css" rel="stylesheet">
+	<script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
+	<script>
+		$(document).on('click','#button',function(){
+			var feed = $('#feedbox').val();
+			if(!feed)
+				alert('Enter the feed');
+			else{
+			$( '<div id="feed"><div class="row" >\
+		  <div class="col-md-2"><img src="C:/Users/dr5/Downloads/ravi-sharma-1457215-unsplash.jpg" class="img-circle" width="100%"/></div>\
+		  <div class="col-md-10">\
+		  <div><b>Customer</b>\
+		  <div class="pull-right text-muted" id="delete">delete</div></div>\
+		  <div> '+feed+'</div>\
+		  <div class="text-muted"> <small>posted a minutes ago</small></div>\
+		  </div>\
+		</div><hr></div>').insertAfter( "#insert" ).hide().slideDown();
+			$('#feedbox').val('');
+		}
+		});
+		
+		$(document).on('click','#delete',function(){
+			$(this).closest('#feed').slideUp();
+		});
+	</script>
+<style>
+	#delete{
+        cursor:pointer;
+        color: white;
+	}
+	.container1{
+		width:730px;
+		margin:0px auto;
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+        background-color:aqua;
+        }
+    .rounded-circle{
+		border-radius: 50%;
+		box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 1);
+      
+	}
+    body{
+        margin: 0%;
+        padding: 0%;
+        font-family: Monotype Corsiva;
+        background-image:url(pay.jpg);
+        background-size:cover;
+    }
+    #button{
+        background-color:deepskyblue;
+        padding:10px 10px;
+        font-family: Monotype Corsiva;
+        font-size:17px;
+        transition: 3s;
+    }
+    #feedbox{
+        padding:40px 50px;
+        width:40%;
+        height: 30%;
+        
+
+    }
+    
+
+	
+</style>
+	</head>
+  <body>
+    <div class="container1">
+      <div class="header">
+        <h2 style="color: azure;background-color:deepskyblue;" class="text-muted">PLEASURE TO WELCOME YOUR REVIEWS</h2>
+      </div>
+	<div>
+		<div class="row">
+		  <div class="col-md-2"><img src="pay.jpg" alt="C:/Users/dr5/Downloads/as" class="rounded-circle" width="20%" /></div><br></br>
+		  <div class="col-md-10"><textarea class="form-control" id="feedbox" rows="3"></textarea><br>
+		  <button type="button" id="button" class="btn btn-default">post</button>
+		  </div>
+		</div>
+	</div>
+	<hr>
+		<div id="insert"></div>
+		<div>
+		<div class="row" id="feed">
+		  
+		  <div class="col-md-10" >
+		  <div><b>CUSTOMER</b>
+		  <div class="pull-right text-muted" id="delete">delete</div></div>
+		  <div> HAVE FUN!!!</div>
+		  <div class="text-muted"style="color:white;"> <small>posted a minutes ago</small></div>
+		  </div>
+		</div>
+	</div>
+	<br>
+      
+  </body>
+
+</html>

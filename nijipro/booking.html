@@ -1,0 +1,147 @@
+<html>
+
+<head>
+  <title>booking</title>
+  <link rel="stylesheet" href="style2.css">
+</head>
+<style>
+  ::placeholder {
+    color: black;
+    opacity: 1;
+    /* Firefox */
+  }
+
+  :-ms-input-placeholder {
+    /* Internet Explorer 10-11 */
+    color: black;
+  }
+
+  ::-ms-input-placeholder {
+    /* Microsoft Edge */
+    color: black;
+  }
+</style>
+
+<body >
+  <h6 style="color:black;font-size:500%;font-family:Monotype Corsiva;text-align:top;"><i>
+      <marquee>BEYOND SPACE</marquee>
+    </i></h6>
+  <div class="container">
+
+    <div class="card">
+
+      <input type="text" placeholder="GuestName" id="name"><br>
+
+      HotelName: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+      <select  id="hotels" class="style" onchange="loadRoom()">
+      </select><br>
+
+      RoomType: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<select  id="hotels1" class="style">
+        
+      </select><br>
+
+      Check-in-Date:&nbsp;&nbsp;<input type="date" name="Check-in-Date" class="style"><br>
+      Check-out-Date:<input type="date" name="Check-out-Date" class="style"><br>
+      <input type="text" placeholder="No-of-rooms" id="name"><br>
+      <input type="button" onclick="location.href='payment.html';" class="button" value="Book" id="button">
+
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+
+      <input type="button" onclick="location.href='home.html';" class="button1" value="Cancel" id="button">
+    </div>
+  </div>
+  
+  <script type="text/javascript">
+    function loadRoom() {
+      const selectedBox = document.getElementById('hotels');
+      // console.log(selectedBox.value);
+
+      fetch(`http://localhost:8080/api/hotel/${selectedBox.value}/rooms`)
+        .then((res) => res.json()).then(hotel => {
+          console.log(hotel);
+          let output = '';
+          hotel.map(h => {
+            console.log(h.roomDesc);
+            output += `
+              <option value="${h.roomDesc}">${h.roomDesc}</option>
+            `;
+          });
+          console.log(output);
+          document.getElementById('hotels1').innerHTML = output;
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+    }
+    
+    function loadPosts() {
+      // console.log(id);
+
+      fetch(`http://localhost:8080/api/hotel`)
+        .then((res) => res.json()).then(hotel => {
+          
+          let output = '';
+          hotel.map(h => {
+            // console.log(h);
+            output += `
+              <option value="${h.hotelid}">${h.hotelName}</option>
+            `;
+          });
+          // console.log(output);
+          document.getElementById('hotels').innerHTML = output;
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+    }
+
+    function start()
+    {
+      loadPosts();
+      // loadRoom();
+    }
+
+  /*  function booking(){
+      console.log('hello');
+            const name = document.getElementById('Name').value;
+            const hotel = document.getElementById('Email').value;
+            const room = document.getElementById('PhoneNumber').value;
+            const cin = document.getElementById('DOB').value;
+            const cout= document.getElementById('Gender').value;
+            const nor = document.getElementById('Password').value;
+            const url = 'http://localhost:8080/api/reservation';
+            const data = {
+                    'guestName': name,
+                    'hotelid': hotel,
+                    'roomid': room,
+                    'checkInDate': cin,
+                    'checkOutDate': cout,
+                    'noOfRooms': nor
+                };
+            console.log('' + JSON.stringify(data));
+            fetch(url, {
+                method: 'POST', // *GET, POST, PUT, DELETE, etc.                
+                headers: {
+                    'Content-Type': 'application/json',                    
+                },            
+                body: JSON.stringify(data), // body data type must match "Content-Type" header
+            })
+            .then(response => response.json())
+                .then(data => console.log(JSON.stringify(data)) )
+                .catch(error => console.error(error));
+        }*/
+    
+     
+
+   window.onload = start();
+    
+
+    
+  </script>
+
+
+</body>
+
+</html>

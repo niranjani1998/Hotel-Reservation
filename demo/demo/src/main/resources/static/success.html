@@ -1,0 +1,48 @@
+<html>
+    <head>
+        <style>
+            body{
+                 margin: 0%;
+                 padding: 0%;
+                 background-image: url(success.jpg);
+                 background-size: cover;
+            }
+
+
+                </style>
+    </head>
+    <body>
+            <p  id="name"  style="color:white;text-align:center; margin-left:100px; margin-top:200px;;font-family: Monotype Corsiva;font-size:   55px; ">Hi!</p>   
+      <p style="color:white;text-align:center; margin-left:100px; margin-top:200px;;font-family: Monotype Corsiva;font-size:   55px; ">SUCCESSFULLY BOOKED !!!!</p> 
+      <p style="color: white;font-family: Monotype Corsiva;font-size: 48;">Thank you !We are looking forward to welcoming you soon again to our Hotels </p>   
+    
+    
+    <script>
+    
+
+        document.getElementById('name').innerHTML+=getCookie('cardowner');
+
+    
+    function getCookie(cname) {
+    var name = cname + "=";
+    var decodedCookie = decodeURIComponent(document.cookie);
+    var ca = decodedCookie.split(';');
+    for(var i = 0; i < ca.length; i++) {
+      var c = ca[i];
+      while (c.charAt(0) == ' ') {
+        c = c.substring(1);
+      }
+      if (c.indexOf(name) == 0) {
+        return c.substring(name.length, c.length);
+      }
+    }
+    return "";
+  }
+    
+    
+    </script>
+    
+    
+    
+    </body>
+</html>

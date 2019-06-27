@@ -1,0 +1,289 @@
+body
+{
+background-color:white;
+
+margin: 0;
+font-family: Monotype Corsiva;
+
+}
+.topnav {
+  overflow: hidden;
+  background-color: deepskyblue;
+}
+
+.topnav a {
+  float: left;
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+}
+
+.topnav a:hover {
+  background-color:darkmagenta;
+  color:white;
+}
+
+.topnav a.active {
+  background-color: darkmagenta;
+  color: white;
+}
+
+.topnav .search-container {
+  float: right;
+}
+
+.topnav input[type=text] {
+  padding: 6px;
+  margin-top: 8px;
+  font-size: 17px;
+  border: none;
+}
+
+.topnav .search-container button {
+  float: right;
+  padding: 6px 10px;
+  margin-top: 8px;
+  margin-right: 16px;
+  background:lightseagreen;
+  font-size: 17px;
+  border: none;
+  cursor: pointer;
+}
+
+.topnav .search-container button:hover {
+  background: #ccc;
+}
+
+@media screen and (max-width: 600px) {
+  .topnav .search-container {
+    float: none;
+  }
+  .topnav a, .topnav input[type=text], .topnav .search-container button {
+    float: none;
+    display: block;
+    text-align: left;
+    width: 100%;
+    margin: 0;
+    padding: 14px;
+  }
+  .topnav input[type=text] {
+    border: 1px solid #ccc;  
+  }
+}
+  
+.container{
+    top:100%;
+}
+.button
+{
+  border:60px;
+  padding:80px 70px;
+  background-image:url(final.jpeg);
+  background-size:cover;
+  color:white;
+  width:20%;
+  top:-5.5%;
+  text-align: top;
+  font-size: 180%;
+  font-family: Monotype Corsiva;
+  margin-top:50px;
+  border:none;
+  outline:none;
+  margin-left:40px;
+  color:white;
+  transition:3s;
+  border-radius:10px;
+}
+.button:hover{
+    background-image:url(be.jpg);
+    transition: 2s;
+}
+.button1
+{
+  border:60px;
+  padding:80px 70px;
+  background-image:url(final2.jpeg);
+  background-size:cover;
+  color:white;
+  width: 20%;
+  top:-5.5%;
+  text-align: top;
+  font-size: 180%;
+  font-family: Monotype Corsiva;
+  margin-top:50px;
+  border:none;
+  outline:none;
+  margin-left:40px;
+  color:white;
+  transition:3s;
+  border-radius:10px;
+}
+.button1:hover{
+    background-image:url(be1.jpg);
+    transition: 2s;
+}
+.button2
+{
+  border:60px;
+  padding:80px 70px;
+  background-image:url(fin.jpg);
+  background-size:cover;
+  color:white;
+  top:-5.5%;
+  text-align: top;
+  font-size: 180%;
+  font-family: Monotype Corsiva;
+  margin-top:50px;
+  border:none;
+  width:20%;
+  outline:none;
+  margin-left:40px;
+  color:white;
+  transition:3s;
+  border-radius:10px;
+}
+.button2:hover{
+    background-image:url(be2.jpg);
+    transition: 2s;
+}
+.button3
+{
+  border:60px;
+  padding:80px 70px;
+  background-image:url(niji.jpg);
+  background-size:cover;
+  color:white;
+  top:-5.5%;
+  text-align: top;
+  font-size: 180%;
+  font-family: Monotype Corsiva;
+  margin-top:50px;
+  border:none;
+  width:20%;
+  outline:none;
+  margin-left:40px;
+  color:white;
+  transition:3s;
+  border-radius:10px;
+}
+.button3:hover{
+    background-image:url(be3.jpg);
+    transition: 2s;
+}
+.button4
+{
+  border:60px;
+  padding:80px 70px;
+  background-image:url(hotel1.png);
+  background-size:cover;
+  color:white;
+  top:-5.5%;
+  text-align: top;
+  font-size: 180%;
+  font-family: Monotype Corsiva;
+  margin-top:50px;
+  width:20%;
+  border:none;
+  outline:none;
+  margin-left:40px;
+  color:white;
+  transition:3s;
+  border-radius:10px;
+}
+.button4:hover{
+    background-image:url(be4.jpg);
+    transition: 2s;
+}
+.button5
+{
+  border:60px;
+  padding:80px 70px;
+  background-image:url(hotel2.jpg);
+  background-size:cover;
+  color:white;
+  top:-5.5%;
+  text-align: top;
+  font-size: 180%;
+  font-family: Monotype Corsiva;
+  margin-top:50px;
+  border:none;
+  outline:none;
+  width:20%;
+  margin-left:40px;
+  color:white;
+  transition:3s;
+  border-radius:10px;
+}
+.button5:hover{
+    background-image:url(be6.jpg);
+    transition: 2s;
+}
+.button6
+{
+  border:60px;
+  padding:80px 70px;
+  background-image:url(fi.jpg);
+  background-size:cover;
+  color:white;
+  top:-5.5%;
+  text-align: top;
+  font-size: 180%;
+  font-family: Monotype Corsiva;
+  margin-top:50px;
+  width:20%;
+  border:none;
+  outline:none;
+  margin-left:40px;
+  color:white;
+  transition:3s;
+  border-radius:10px;
+}
+.button6:hover{
+    background-image:url(be7.jpg);
+    transition: 2s;
+}
+.button7
+{
+  border:60px;
+  padding:80px 70px;
+  background-image:url(htt.jpg);
+  background-size:cover;
+  color:white;
+  top:-5.5%;
+  text-align: top;
+  font-size: 180%;
+  font-family: Monotype Corsiva;
+  margin-top:50px;
+  border:none;
+  width:20%;
+  outline:none;
+  margin-left:40px;
+  color:white;
+  transition:3s;
+  border-radius:10px;
+}
+.button7:hover{
+    background-image:url(be8.jpg);
+    transition: 2s;
+}
+.table{
+
+    font-family: Monotype Corsiva;
+    border-collapse: collapse;
+    width: 100%;
+  }
+  
+  td, th {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+  }
+  
+  tr:nth-child(even) {
+    background-color:deepskyblue;
+  }
+
+
